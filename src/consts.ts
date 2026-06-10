@@ -9,7 +9,7 @@ export const SITE: Site = {
 
 // Work Page
 export const WORK: Page = {
-  TITLE: "Education",
+  TITLE: "Academic Trajectory",
   DESCRIPTION: "Academic background, research preparation, and interdisciplinary training.",
 }
 
