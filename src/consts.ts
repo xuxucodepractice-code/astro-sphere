@@ -2,33 +2,33 @@ import type { Site, Page, Links, Socials } from "@types"
 
 // Global
 export const SITE: Site = {
-  TITLE: "Astro Sphere",
-  DESCRIPTION: "Welcome to Astro Sphere, a portfolio and blog for designers and developers.",
-  AUTHOR: "Mark Horn",
+  TITLE: "Zijian Xu",
+  DESCRIPTION: "Academic portfolio of Zijian Xu, an MSc FinTech student at PolyU exploring AI, robotics, agentic AI, and quantitative finance.",
+  AUTHOR: "Zijian Xu",
 }
 
 // Work Page
 export const WORK: Page = {
-  TITLE: "Work",
-  DESCRIPTION: "Places I have worked.",
+  TITLE: "Education",
+  DESCRIPTION: "Academic background, research preparation, and interdisciplinary training.",
 }
 
 // Blog Page
 export const BLOG: Page = {
-  TITLE: "Blog",
-  DESCRIPTION: "Writing on topics I am passionate about.",
+  TITLE: "Writing",
+  DESCRIPTION: "Notes on research, productivity systems, sport, history, and philosophy.",
 }
 
 // Projects Page 
 export const PROJECTS: Page = {
-  TITLE: "Projects",
-  DESCRIPTION: "Recent projects I have worked on.",
+  TITLE: "Research & Projects",
+  DESCRIPTION: "Selected research proposals and engineering projects across AI, robotics, and quantitative finance.",
 }
 
 // Search Page
 export const SEARCH: Page = {
   TITLE: "Search",
-  DESCRIPTION: "Search all posts and projects by keyword.",
+  DESCRIPTION: "Search posts, projects, and notes by keyword.",
 }
 
 // Links
@@ -38,15 +38,15 @@ export const LINKS: Links = [
     HREF: "/", 
   },
   { 
-    TEXT: "Work", 
+    TEXT: "Education", 
     HREF: "/work", 
   },
   { 
-    TEXT: "Blog", 
+    TEXT: "Writing", 
     HREF: "/blog", 
   },
   { 
-    TEXT: "Projects", 
+    TEXT: "Research", 
     HREF: "/projects", 
   },
 ]
@@ -54,28 +54,21 @@ export const LINKS: Links = [
 // Socials
 export const SOCIALS: Socials = [
   { 
-    NAME: "Email",
+    NAME: "Personal Email",
     ICON: "email", 
-    TEXT: "markhorn.dev@gmail.com",
-    HREF: "mailto:markhorn.dev@gmail.com",
+    TEXT: "xuxucodepractice@gmail.com",
+    HREF: "mailto:xuxucodepractice@gmail.com",
   },
   { 
-    NAME: "Github",
+    NAME: "PolyU Email",
+    ICON: "email",
+    TEXT: "25059032g@connect.polyu.hk",
+    HREF: "mailto:25059032g@connect.polyu.hk",
+  },
+  {
+    NAME: "GitHub",
     ICON: "github",
-    TEXT: "markhorn-dev",
-    HREF: "https://github.com/markhorn-dev/astro-sphere"
-  },
-  { 
-    NAME: "LinkedIn",
-    ICON: "linkedin",
-    TEXT: "markhorn-dev",
-    HREF: "https://www.linkedin.com/in/markhorn-dev/",
-  },
-  { 
-    NAME: "Twitter",
-    ICON: "twitter-x",
-    TEXT: "markhorn_dev",
-    HREF: "https://twitter.com/markhorn_dev",
+    TEXT: "xuxucodepractice-code",
+    HREF: "https://github.com/xuxucodepractice-code",
   },
 ]
-
