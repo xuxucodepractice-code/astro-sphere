@@ -25,6 +25,12 @@ export const PROJECTS: Page = {
   DESCRIPTION: "Selected research proposals and engineering projects across AI, robotics, and quantitative finance.",
 }
 
+// About Page
+export const ABOUT: Page = {
+  TITLE: "About Me",
+  DESCRIPTION: "Beyond the CV — systems, sport, philosophy, and the person behind the research.",
+}
+
 // Search Page
 export const SEARCH: Page = {
   TITLE: "Search",
@@ -45,9 +51,13 @@ export const LINKS: Links = [
     TEXT: "Writing", 
     HREF: "/blog", 
   },
-  { 
-    TEXT: "Research", 
-    HREF: "/projects", 
+  {
+    TEXT: "Research",
+    HREF: "/projects",
+  },
+  {
+    TEXT: "About",
+    HREF: "/about",
   },
 ]
 

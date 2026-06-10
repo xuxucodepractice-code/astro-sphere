@@ -1,0 +1,134 @@
+---
+import PageLayout from "@layouts/PageLayout.astro"
+import TopLayout from "@layouts/TopLayout.astro"
+import BottomLayout from "@layouts/BottomLayout.astro"
+import { ABOUT } from "@consts"
+---
+
+<PageLayout title={ABOUT.TITLE} description={ABOUT.DESCRIPTION}>
+  <TopLayout>
+    <div class="animate page-heading">
+      {ABOUT.TITLE}
+    </div>
+  </TopLayout>
+  <BottomLayout>
+    <div class="animate">
+      <article>
+
+        <p>
+          I'm Zijian — currently an MSc FinTech student at The Hong Kong Polytechnic University,
+          preparing for PhD applications in AI, robotics, and agentic systems.
+          But this page is not about my CV. It's about the person behind the research.
+        </p>
+
+        <h2>Systems as Thinking Infrastructure</h2>
+
+        <p>
+          I've spent years building personal productivity systems with tools like
+          <b>Obsidian</b> and <b>Notion</b>. I don't treat them as aesthetic dashboards —
+          I treat them as <b>thinking infrastructure</b>.
+        </p>
+
+        <p>
+          Important ideas rarely arrive fully formed. They begin as fragments: project notes,
+          paper summaries, experiment observations, questions, and half-finished reflections.
+          If those fragments aren't captured and revisited, they disappear before they can
+          become useful.
+        </p>
+
+        <p>
+          For research, this matters. A good system helps me:
+        </p>
+
+        <ul>
+          <li>separate observations from conclusions;</li>
+          <li>track why an experiment failed;</li>
+          <li>connect concepts across finance, AI, and robotics;</li>
+          <li>preserve questions that may become future research ideas;</li>
+          <li>review long-term goals without losing sight of weekly execution.</li>
+        </ul>
+
+        <p>
+          The point is not to become more busy. The point is to become more <b>coherent</b>.
+        </p>
+
+        <h2>Sport and Research Discipline</h2>
+
+        <p>
+          I train consistently — <b>tennis twice a week</b> and <b>Hyrox-style conditioning</b>
+          have become part of how I maintain energy, patience, and resilience.
+        </p>
+
+        <p>
+          Sport gives feedback that is difficult to avoid. If my movement is late, the ball is gone.
+          If my conditioning is weak, the workout exposes it. If I become emotional, my execution
+          becomes worse.
+        </p>
+
+        <p>
+          That feedback loop is useful for research temperament. It teaches me to respect
+          fundamentals, stay calm under pressure, and improve through repeated small corrections.
+        </p>
+
+        <p>
+          Research has a similar rhythm. A model fails. A proof doesn't close. A result
+          looks promising and then collapses under a better validation split. The useful
+          response is not panic — it's <b>diagnosis</b>.
+        </p>
+
+        <h2>History, Philosophy, and Long-term Thinking</h2>
+
+        <p>
+          Outside technical work, I'm drawn to <b>Chinese history and philosophy</b>.
+          Part of the attraction is scale. Historical thinking makes individual problems
+          feel less absolute. It reminds me that systems, incentives, institutions, and
+          human behavior interact over long periods.
+        </p>
+
+        <p>
+          That perspective matters for AI and finance. Models don't exist in empty space.
+          They operate inside social, economic, and institutional environments. A technically
+          impressive system can still fail if it ignores incentives, feedback loops, or
+          human behavior.
+        </p>
+
+        <p>
+          Philosophy also helps me think about ambition. I want to work seriously, but not
+          frantically. I want to build competence over years, not only chase short bursts
+          of performance.
+        </p>
+
+        <h2>Why This Matters for a PhD</h2>
+
+        <p>
+          A PhD is not only a test of whether someone can understand difficult ideas. It is
+          also a test of whether they can return to a problem again and again, organize
+          uncertainty, recover from failed attempts, and keep improving without needing
+          immediate reward.
+        </p>
+
+        <p>
+          My systems, sport, and humanities interests all point toward the same underlying trait:
+          I care about <b>sustained development</b>. I'm learning to become someone who can hold
+          a difficult question for a long time, keep records honestly, train consistently, and
+          return to the work with more clarity each time.
+        </p>
+
+        <p>
+          That, to me, is part of becoming a researcher.
+        </p>
+
+      </article>
+
+      <div class="mt-12 pt-6 border-t border-black/10 dark:border-white/25">
+        <a href="/" class="group flex gap-1.5 items-center text-sm hover:text-black dark:hover:text-white transition-colors duration-300 ease-in-out">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="stroke-current">
+            <line x1="19" y1="12" x2="5" y2="12" class="scale-x-0 group-hover:scale-x-100 translate-x-3 group-hover:translate-x-0 transition-all duration-300 ease-in-out" />
+            <polyline points="12 19 5 12 12 5" class="translate-x-1 group-hover:translate-x-0 transition-all duration-300 ease-in-out" />
+          </svg>
+          <span>Back to home</span>
+        </a>
+      </div>
+    </div>
+  </BottomLayout>
+</PageLayout>
