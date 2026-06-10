@@ -1,7 +1,7 @@
 ---
 title: "C4 Big Data Challenge: Reproducible Stock Selection and Portfolio Construction Pipeline"
 summary: "An offline-first quantitative finance pipeline that turns short-horizon stock selection into leakage-safe ranking, risk-aware reranking, and validated Top5 portfolio construction."
-date: "Jun 09 2026"
+date: "Jun 01 2026"
 draft: false
 tags:
 - Quantitative Finance
@@ -16,7 +16,7 @@ repoUrl: https://github.com/aKx1ya/BDC
 
 ## Overview
 
-This project was developed for the **2026 China Collegiate Computing Contest - Big Data Challenge**. The task is to predict which CSI 300 constituent stocks are likely to deliver stronger returns over the next trading week and submit a valid portfolio file.
+This project began in **June 2026** and was developed for the **2026 China Collegiate Computing Contest - Big Data Challenge**. The task is to predict which CSI 300 constituent stocks are likely to deliver stronger returns over the next trading week and submit a valid portfolio file.
 
 The official evaluation uses an open-to-open portfolio return:
 
@@ -27,6 +27,12 @@ Goal: maximize weighted portfolio return
 ```
 
 The final submission must be a `result.csv` file containing no more than five stock IDs, non-negative weights, no duplicate stocks, and total weight no greater than 1.
+
+## Timeline and Competition Context
+
+The project started in **June 2026** and entered the first competition phase with a focus on building a reproducible pipeline before pushing for model complexity.
+
+Our first-stage result was **35 / 1,200 teams**. For a finance-focused project, I see this result as evidence that disciplined data handling, leakage control, and portfolio construction can matter as much as raw model sophistication.
 
 ## My Role
 
@@ -87,7 +93,7 @@ The model first writes a `candidate_top30.csv` file. The reranking layer then ap
 
 The final output is a validated `result.csv` with up to five selected stocks and equal weights by default.
 
-## Validation Snapshot
+## Competition Result and Validation
 
 One local evaluation snapshot produced a weighted open-to-open return of approximately **1.996%** on the held-out test slice. I treat this as an internal validation result, not an official competition ranking.
 
