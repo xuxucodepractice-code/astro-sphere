@@ -1,0 +1,110 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 660" role="img" aria-labelledby="title desc">
+  <title id="title">Conceptual architecture for lightweight LLM-enhanced financial forecasting</title>
+  <desc id="desc">A high-level research architecture showing financial text and market data flowing into leakage-safe LLM sentiment extraction, lightweight multimodal fusion, causal interpretation, and human-in-the-loop agentic decision support, with feedback for model refinement.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#475569"/>
+    </marker>
+    <marker id="arrow-accent" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#0f766e"/>
+    </marker>
+    <linearGradient id="paper" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#f8fafc"/>
+      <stop offset="100%" stop-color="#eef2ff"/>
+    </linearGradient>
+    <style>
+      .bg { fill: url(#paper); }
+      .panel { fill: #ffffff; stroke: #cbd5e1; stroke-width: 1.5; }
+      .panel-muted { fill: #f8fafc; stroke: #cbd5e1; stroke-width: 1.5; }
+      .title { fill: #0f172a; font: 700 28px system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+      .subtitle { fill: #475569; font: 500 16px system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+      .label { fill: #0f172a; font: 700 19px system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+      .small { fill: #475569; font: 500 14px system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+      .micro { fill: #64748b; font: 600 12px system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; letter-spacing: 0; }
+      .pill-blue { fill: #dbeafe; stroke: #93c5fd; }
+      .pill-teal { fill: #ccfbf1; stroke: #5eead4; }
+      .pill-amber { fill: #fef3c7; stroke: #fcd34d; }
+      .pill-rose { fill: #ffe4e6; stroke: #fda4af; }
+      .arrow { stroke: #475569; stroke-width: 2.5; fill: none; marker-end: url(#arrow); }
+      .arrow-accent { stroke: #0f766e; stroke-width: 2.5; fill: none; marker-end: url(#arrow-accent); }
+      .loop { stroke: #0f766e; stroke-width: 2.5; stroke-dasharray: 7 7; fill: none; marker-end: url(#arrow-accent); }
+      @media (prefers-color-scheme: dark) {
+        .bg { fill: #020617; }
+        .panel { fill: #0f172a; stroke: #334155; }
+        .panel-muted { fill: #111827; stroke: #334155; }
+        .title, .label { fill: #f8fafc; }
+        .subtitle, .small { fill: #cbd5e1; }
+        .micro { fill: #94a3b8; }
+        .pill-blue { fill: #172554; stroke: #2563eb; }
+        .pill-teal { fill: #134e4a; stroke: #14b8a6; }
+        .pill-amber { fill: #451a03; stroke: #d97706; }
+        .pill-rose { fill: #4c0519; stroke: #e11d48; }
+        .arrow { stroke: #94a3b8; }
+        .loop, .arrow-accent { stroke: #2dd4bf; }
+      }
+    </style>
+  </defs>
+
+  <rect class="bg" x="0" y="0" width="1080" height="660" rx="28"/>
+  <text class="title" x="54" y="62">Lightweight LLM-enhanced Financial Forecasting</text>
+  <text class="subtitle" x="54" y="92">From multimodal signals to interpretable, human-in-the-loop decision support</text>
+
+  <rect class="panel-muted" x="54" y="128" width="208" height="176" rx="18"/>
+  <text class="micro" x="78" y="162">INPUTS</text>
+  <rect class="pill-blue" x="78" y="182" width="160" height="44" rx="22"/>
+  <text class="label" x="103" y="210">Market Data</text>
+  <text class="small" x="82" y="252">prices, volume, volatility</text>
+  <text class="small" x="82" y="274">and market regimes</text>
+
+  <rect class="panel-muted" x="54" y="346" width="208" height="176" rx="18"/>
+  <text class="micro" x="78" y="380">TEXT STREAM</text>
+  <rect class="pill-teal" x="78" y="400" width="160" height="44" rx="22"/>
+  <text class="label" x="98" y="428">Financial Text</text>
+  <text class="small" x="82" y="470">news, filings, policy signals</text>
+  <text class="small" x="82" y="492">and analyst narratives</text>
+
+  <rect class="panel" x="330" y="158" width="220" height="320" rx="20"/>
+  <text class="micro" x="358" y="196">MODULE A</text>
+  <text class="label" x="358" y="226">LLM Sentiment</text>
+  <text class="label" x="358" y="252">Extraction</text>
+  <text class="small" x="358" y="292">timestamp alignment</text>
+  <text class="small" x="358" y="318">leakage-safe features</text>
+  <text class="small" x="358" y="344">polarity and intensity</text>
+  <text class="small" x="358" y="370">uncertainty and focus</text>
+  <rect class="pill-teal" x="358" y="404" width="164" height="42" rx="21"/>
+  <text class="small" x="388" y="430">auditable pipeline</text>
+
+  <rect class="panel" x="622" y="128" width="218" height="176" rx="20"/>
+  <text class="micro" x="650" y="164">MODULE B</text>
+  <text class="label" x="650" y="194">Lightweight</text>
+  <text class="label" x="650" y="220">Fusion</text>
+  <text class="small" x="650" y="256">compression + gating</text>
+  <text class="small" x="650" y="278">cross-modal interaction</text>
+
+  <rect class="panel" x="622" y="346" width="218" height="176" rx="20"/>
+  <text class="micro" x="650" y="382">MODULE C</text>
+  <text class="label" x="650" y="412">Causal</text>
+  <text class="label" x="650" y="438">Interpretability</text>
+  <text class="small" x="650" y="474">dynamic lag reasoning</text>
+  <text class="small" x="650" y="496">attribution and audit</text>
+
+  <rect class="panel-muted" x="888" y="202" width="150" height="250" rx="20"/>
+  <text class="micro" x="914" y="236">OUTPUT</text>
+  <rect class="pill-amber" x="914" y="256" width="98" height="38" rx="19"/>
+  <text class="small" x="938" y="280">forecast</text>
+  <rect class="pill-rose" x="914" y="310" width="98" height="38" rx="19"/>
+  <text class="small" x="938" y="334">rationale</text>
+  <text class="label" x="914" y="382">Human +</text>
+  <text class="label" x="914" y="408">Agentic</text>
+  <text class="small" x="914" y="434">decision support</text>
+
+  <path class="arrow" d="M 262 216 C 292 216 298 242 330 252"/>
+  <path class="arrow" d="M 262 434 C 294 430 298 398 330 384"/>
+  <path class="arrow" d="M 550 260 C 584 248 590 226 622 216"/>
+  <path class="arrow" d="M 550 376 C 584 392 590 430 622 438"/>
+  <path class="arrow" d="M 840 216 C 862 232 868 268 888 292"/>
+  <path class="arrow" d="M 840 438 C 862 422 868 372 888 350"/>
+
+  <path class="loop" d="M 956 452 C 930 586 436 604 408 478"/>
+  <text class="small" x="456" y="596">explanation + outcome feedback for feature audit and model refinement</text>
+</svg>

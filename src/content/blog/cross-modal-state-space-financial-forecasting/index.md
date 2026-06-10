@@ -42,6 +42,10 @@ A useful financial AI system should satisfy three requirements at the same time:
 
 These requirements shape the manuscript's three-module architecture.
 
+![Conceptual architecture for lightweight LLM-enhanced financial forecasting](./conceptual-architecture.svg)
+
+*Conceptual architecture. The manuscript is framed as a leakage-safe forecasting system that can be extended toward human-in-the-loop, agentic decision support without claiming a fully autonomous trading agent.*
+
 ## Module A: Time-compliant LLM Sentiment Extraction
 
 The first module focuses on transforming unstructured financial text into structured sentiment features.
