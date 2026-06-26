@@ -6,7 +6,7 @@ The site presents my academic trajectory, research projects, writing, and contac
 
 Project name: `zijian-xu`
 
-Production URL: https://astro-sphere-green.vercel.app
+Production URL: https://zijian-xu-xuxucodepractice-codes-projects.vercel.app
 
 ## Site Structure
 
