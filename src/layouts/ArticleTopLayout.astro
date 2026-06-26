@@ -12,6 +12,14 @@ const { title, summary, date } = data
 
 const demoUrl = collection === "projects" ? data.demoUrl : null
 const repoUrl = collection === "projects" ? data.repoUrl : null
+const projectSnapshot = collection === "projects"
+  ? [
+      { label: "Status", value: data.status },
+      { label: "Role", value: data.role },
+      { label: "Result", value: data.result },
+    ].filter((item) => item.value)
+  : []
+const methods = collection === "projects" ? data.methods ?? [] : []
 ---
 
 <div>
@@ -44,6 +52,38 @@ const repoUrl = collection === "projects" ? data.repoUrl : null
   <div class="mt-1">
     {summary}
   </div>
+  {(projectSnapshot.length > 0 || methods.length > 0) &&
+    <div class="mt-6 border-y border-black/10 dark:border-white/25 py-4 space-y-4">
+      {projectSnapshot.length > 0 &&
+        <dl class="grid grid-cols-1 gap-3">
+          {projectSnapshot.map((item) => (
+            <div class="grid grid-cols-1 sm:grid-cols-[7rem_1fr] gap-1 sm:gap-3">
+              <dt class="text-xs uppercase tracking-wide opacity-60">
+                {item.label}
+              </dt>
+              <dd class="text-sm text-black/80 dark:text-white/80">
+                {item.value}
+              </dd>
+            </div>
+          ))}
+        </dl>
+      }
+      {methods.length > 0 &&
+        <div class="grid grid-cols-1 sm:grid-cols-[7rem_1fr] gap-1 sm:gap-3">
+          <div class="text-xs uppercase tracking-wide opacity-60">
+            Methods
+          </div>
+          <ul class="flex flex-wrap gap-1.5">
+            {methods.map((method) => (
+              <li class="text-xs uppercase py-0.5 px-2 rounded bg-black/5 dark:bg-white/15 text-black/75 dark:text-white/75">
+                {method}
+              </li>
+            ))}
+          </ul>
+        </div>
+      }
+    </div>
+  }
   {(demoUrl || repoUrl) && 
   <div class="mt-4 flex flex-wrap gap-2">
     {demoUrl && 

@@ -1,89 +1,59 @@
-![Astro Sphere Lighthouse Score](_astrosphere.jpg)
+# Zijian Xu Portfolio
 
-Astro Sphere is a static, minimalist, lightweight, lightning fast portfolio and blog theme based on my personal website.
+Personal academic website for Zijian Xu, built with Astro, Tailwind CSS, and SolidJS.
 
-It is primarily Astro, Tailwind and Typescript, with a very small amount of SolidJS for stateful components.
+The site presents my academic trajectory, research projects, writing, and contact information for PhD applications and research networking. The central theme is reliable AI decision systems under uncertainty, with finance as a rigorous testbed and connections to robotics, agentic AI, recommender systems, and sequential modeling.
 
-## 🚀 Deploy your own
+Project name: `zijian-xu`
 
-[![Deploy with Vercel](_deploy_vercel.svg)](https://vercel.com/new/clone?repository-url=https://github.com/markhorn-dev/astro-sphere)  [![Deploy with Netlify](_deploy_netlify.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/markhorn-dev/astro-sphere)
+Production URL: https://astro-sphere-green.vercel.app
 
-## 📋 Features
+## Site Structure
 
-- ✅ 100/100 Lighthouse performance
-- ✅ Responsive
-- ✅ Accessible
-- ✅ SEO-friendly
-- ✅ Typesafe
-- ✅ Minimal style
-- ✅ Light/Dark Theme
-- ✅ Animated UI
-- ✅ Tailwind styling
-- ✅ Auto generated sitemap
-- ✅ Auto generated RSS Feed
-- ✅ Markdown support
-- ✅ MDX Support (components in your markdown)
-- ✅ Searchable content (posts and projects)
-- ✅ Code Blocks - copy to clipboard
+- `src/pages/index.astro` - Home page, hero, recent writing, recent projects, contact links.
+- `src/pages/work/index.astro` - Education and academic background.
+- `src/pages/blog` - Writing collection and article pages.
+- `src/pages/projects` - Research and engineering project collection.
+- `src/pages/about.astro` - Personal research preparation, systems, sport, and long-term development.
+- `src/content` - Markdown content collections for writing, projects, education, and legal pages.
+- `public` - Static assets, icons, scripts, fonts, and Open Graph image.
 
-## 💯 Lighthouse score
-![Astro Sphere Lighthouse Score](_lighthouse.png)
+## Tech Stack
 
-## 🕊️ Lightweight
-All pages under 100kb (including fonts)
+- Astro 4
+- Tailwind CSS
+- SolidJS islands for search and filters
+- Fuse.js for local search
+- Astro content collections for typed Markdown content
+- Astro sitemap and RSS integrations
 
-## ⚡︎ Fast
-Rendered in ~40ms on localhost
+## Commands
 
-## 📄 Configuration
+All commands run from the project root.
 
-The blog posts on the demo serve as the documentation and configuration.
+| Command | Action |
+| :-- | :-- |
+| `npm install` | Install dependencies |
+| `npm run dev` | Start local development server |
+| `npm run dev:network` | Start local development server on the local network |
+| `npm run build` | Run Astro checks and build the static site |
+| `npm run preview` | Preview the production build locally |
+| `npm run astro -- --help` | Show Astro CLI help |
 
-## 💻 Commands
+## Content Updates
 
-All commands are run from the root of the project, from a terminal:
+Add writing posts under `src/content/blog/<slug>/index.md`.
 
-Replace npm with your package manager of choice. `npm`, `pnpm`, `yarn`, `bun`, etc
+Add research projects under `src/content/projects/<slug>/index.md`.
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run dev:network`     | Starts dev server on local network               |
-| `npm run sync`            | Generates TypeScript types for all Astro modules.|
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run preview:network` | Starts preview server on local network           |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-| `npm run lint`            | Run ESLint                                       |
-| `npm run lint:fix`        | Auto-fix ESLint issues                           |
+Add education entries under `src/content/work/*.md`.
 
-## 🗺️ Roadmap
+Each collection is typed in `src/content/config.ts`, so missing required frontmatter is caught during `npm run build`.
 
-A few features I plan to implement
-- ⬜ Article Pages - Table of Contents
-- ⬜ Article Pages - Share on social media
+## Deployment
 
-## ✨ Acknowledgement
+The canonical site URL is configured in `astro.config.mjs`. Update that value when moving from the current Vercel deployment to a custom domain.
 
-Theme inspired by [Paco Coursey](https://paco.me/), [Lee Robinson](https://leerob.io/) and [Hayden Bleasel](https://www.haydenbleasel.com/)
-
-
-## 🏛️ License
+## License
 
 MIT
-
-
-# 1.0.1 Update
-
-Added ability to run dev and preview on local network.
-added npm run dev:network
-added npm run preview:network
-
-Added slightly more particle density in both light and dark mode.
-
-Added subtle dark mode star and meteor animations.
-
-Removed eslint config
-

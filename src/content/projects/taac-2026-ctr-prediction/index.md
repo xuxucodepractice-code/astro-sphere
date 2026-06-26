@@ -11,6 +11,16 @@ tags:
 - InterFormer
 - HyFormer
 - Experiment Diagnosis
+status: "Completed competition project with post-deadline diagnostic analysis"
+role: "Research planning, architecture comparison, experiment diagnosis, and paper-oriented analysis"
+result: "Official Round 1 result: 409 / 1,875 teams; strongest diagnostic run mapped better than Top 200 under the scoring reference used"
+methods:
+- CTR prediction
+- Sparse feature interaction
+- Sequential behavior modeling
+- HyFormer
+- InterFormer
+- PyTorch
 repoUrl: https://github.com/aKx1ya/TAAC2026
 ---
 

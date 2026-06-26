@@ -11,6 +11,16 @@ tags:
 - Time-series ML
 - Risk-aware Ranking
 - Reproducible ML
+status: "First-stage competition pipeline completed"
+role: "Technical architecture and implementation lead"
+result: "First-stage result: 35 / 1,200 teams; local held-out open-to-open return around 1.996%"
+methods:
+- LightGBM LambdaRank
+- Time-aware validation
+- Leakage-safe feature engineering
+- Risk-aware reranking
+- Portfolio construction
+- Reproducible ML pipeline
 repoUrl: https://github.com/aKx1ya/BDC
 ---
 

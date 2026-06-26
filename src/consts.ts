@@ -3,7 +3,7 @@ import type { Site, Page, Links, Socials } from "@types"
 // Global
 export const SITE: Site = {
   TITLE: "Zijian Xu",
-  DESCRIPTION: "Academic portfolio of Zijian Xu, an MSc FinTech student at PolyU exploring AI, robotics, agentic AI, and quantitative finance.",
+  DESCRIPTION: "Academic portfolio of Zijian Xu, an MSc FinTech student at PolyU studying AI decision systems under uncertainty across finance, robotics, recommender systems, and agentic AI.",
   AUTHOR: "Zijian Xu",
 }
 
@@ -16,19 +16,19 @@ export const WORK: Page = {
 // Blog Page
 export const BLOG: Page = {
   TITLE: "Writing",
-  DESCRIPTION: "Notes on research, productivity systems, sport, history, and philosophy.",
+  DESCRIPTION: "Notes on AI decision systems, research preparation, productivity systems, sport, history, and philosophy.",
 }
 
 // Projects Page 
 export const PROJECTS: Page = {
   TITLE: "Research & Projects",
-  DESCRIPTION: "Selected research proposals and engineering projects across AI, robotics, and quantitative finance.",
+  DESCRIPTION: "Selected research and engineering projects on decision systems, sequential modeling, AI, and quantitative finance.",
 }
 
 // About Page
 export const ABOUT: Page = {
   TITLE: "About Me",
-  DESCRIPTION: "Beyond the CV — systems, sport, philosophy, and the person behind the research.",
+  DESCRIPTION: "The research direction, habits, and long-term preparation behind my academic path.",
 }
 
 // Search Page
