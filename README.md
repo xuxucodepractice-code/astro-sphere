@@ -22,10 +22,18 @@ Production URL: https://zijian-xu-xuxucodepractice-codes-projects.vercel.app
 
 - Astro 4
 - Tailwind CSS
-- SolidJS islands for search and filters
+- SolidJS islands for search, filters, and the command palette
 - Fuse.js for local search
 - Astro content collections for typed Markdown content
 - Astro sitemap and RSS integrations
+
+## Design System
+
+- **Accent hues**: switchable via the dot picker in the header. Presets: champagne gold (default), emerald, sapphire, monochrome. Applied as `data-accent` on `<html>`, persisted to `localStorage`, and driven by the `--accent` RGB triplet in `src/styles/global.css`. Use Tailwind classes like `text-accent`, `bg-accent/10`, `border-accent` to consume it.
+- **Typography tiers**: Fraunces (display serif, headings), Atkinson (body), IBM Plex Mono (numbered labels such as `[ 01 ]`). Utility classes: `.mono-label`, `.mono-label-plain`, `.section-rule`, `.btn-accent`, `.accent-link`, `.chip-accent`.
+- **Homepage narrative**: five numbered acts — `[ 00 ]` hero, `[ 01 ]` the question, `[ 02 ]` the laboratories (interactive domain map in `src/components/LaboratoryMap.astro`), `[ 03 ]` the trajectory, `[ 04 ]` selected writing, `[ 05 ]` connect.
+- **Interactions**: `Cmd+K` command palette (`src/components/CommandPalette.tsx`), cursor spotlight cards (`.spotlight-card` + `public/js/spotlight.js`), article reading progress bar and scroll-spy table of contents (`src/layouts/ArticleBottomLayout.astro`). All motion respects `prefers-reduced-motion`.
+
 
 ## Commands
 

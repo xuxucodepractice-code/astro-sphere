@@ -4,8 +4,21 @@ import BaseHead from "@components/BaseHead.astro"
 import Header from "@components/Header.astro"
 import Footer from "@components/Footer.astro"
 import Drawer from "@components/Drawer.astro"
+import CommandPalette from "@components/CommandPalette"
+import { getCollection } from "astro:content"
 const { title, description } = Astro.props
 import { SITE } from "@consts"
+
+const paletteItems = [
+  ...(await getCollection("blog", ({ data }) => !data.draft)),
+  ...(await getCollection("projects", ({ data }) => !data.draft)),
+].map((entry) => ({
+  title: entry.data.title,
+  summary: entry.data.summary,
+  slug: entry.slug,
+  collection: entry.collection,
+  tags: entry.data.tags,
+}))
 ---
 
 <!doctype html>
@@ -20,5 +33,6 @@ import { SITE } from "@consts"
       <slot />
     </main>
     <Footer />
+    <CommandPalette client:only="solid-js" items={paletteItems} />
   </body>
 </html>
