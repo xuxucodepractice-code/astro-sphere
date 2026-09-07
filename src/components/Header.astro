@@ -54,6 +54,13 @@ import Container from "@components/Container.astro"
         </svg>
       </button>
 
+      <div aria-label="Accent color switcher" class={cn("hidden md:flex", "h-9 rounded-full px-2.5 items-center justify-center gap-2", "border border-black/10 dark:border-white/25")}>
+        <button class="accent-dot" data-accent-value="gold" aria-label="Champagne gold accent" aria-pressed="true" style="background:#C9A962"></button>
+        <button class="accent-dot" data-accent-value="emerald" aria-label="Emerald accent" aria-pressed="false" style="background:#45A383"></button>
+        <button class="accent-dot" data-accent-value="sapphire" aria-label="Sapphire accent" aria-pressed="false" style="background:#6E9FE8"></button>
+        <button class="accent-dot" data-accent-value="mono" aria-label="Monochrome accent" aria-pressed="false" style="background:#A3A3A3"></button>
+      </div>
+
       <button id="header-drawer-button" aria-label={`Toggle drawer open and closed`} class={cn("flex md:hidden", "size-9 rounded-full p-2 items-center justify-center", "bg-transparent hover:bg-black/5 dark:hover:bg-white/20", "stroke-current hover:stroke-black hover:dark:stroke-white", "border border-black/10 dark:border-white/25", "transition-colors duration-300 ease-in-out")}>
         <svg id="drawer-open" class="size-full">
           <use href="/ui.svg#menu"></use>

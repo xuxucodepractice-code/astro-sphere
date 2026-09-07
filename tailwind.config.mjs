@@ -8,6 +8,13 @@ export default {
     extend: {
       fontFamily: {
         "sans": ["Atkinson", ...defaultTheme.fontFamily.sans],
+        "display": ["Fraunces", "Iowan Old Style", "Palatino Linotype", "Palatino", "Georgia", "serif"],
+        "monolabel": ["IBM Plex Mono", "ui-monospace", "SFMono-Regular", "Menlo", "monospace"],
+      },
+      colors: {
+        accent: "rgb(var(--accent) / <alpha-value>)",
+        "accent-ink": "rgb(var(--accent-ink) / <alpha-value>)",
+        paper: "rgb(var(--bg) / <alpha-value>)",
       },
       typography: {
         DEFAULT: {

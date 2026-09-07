@@ -2,9 +2,43 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ============================================================
+   Design tokens
+   - Warm paper / ink base instead of pure black & white
+   - Switchable accent via <html data-accent="gold|emerald|sapphire|mono">
+   - Accent is stored as an RGB triplet so Tailwind alpha modifiers work
+   ============================================================ */
+
 :root {
   --copy-btn-margin: 10px;
+
+  /* base surfaces */
+  --bg: 250 250 248;          /* warm paper */
+  --bg-elevated: 244 243 239;
+
+  /* default accent: champagne gold (light mode, deeper for contrast) */
+  --accent: 158 122 48;
+  --accent-ink: 250 250 248;  /* text on top of accent */
 }
+
+html.dark {
+  --bg: 11 11 13;             /* ink, not pure black */
+  --bg-elevated: 20 20 23;
+
+  /* champagne gold (dark mode) */
+  --accent: 201 169 98;
+  --accent-ink: 11 11 13;
+}
+
+/* accent presets */
+html[data-accent="emerald"] { --accent: 24 116 84; }
+html.dark[data-accent="emerald"] { --accent: 69 163 131; }
+
+html[data-accent="sapphire"] { --accent: 43 95 179; }
+html.dark[data-accent="sapphire"] { --accent: 110 159 232; }
+
+html[data-accent="mono"] { --accent: 23 23 25; }
+html.dark[data-accent="mono"] { --accent: 240 240 240; }
 
 @layer base {
   @font-face {
@@ -27,21 +61,19 @@
 html {
   overflow-y: scroll;
   color-scheme: light;
-  background-color: white;
+  background-color: rgb(var(--bg));
   font-family: "Atkinson", sans-serif;
-
 }
 
 html.dark {
   color-scheme: dark;
-  background-color: black;
 }
 
 html,
 body {
   @apply h-full w-full antialiased;
-  @apply bg-white dark:bg-black;
   @apply text-black/75 dark:text-white/75;
+  background-color: rgb(var(--bg));
 }
 
 body {
@@ -49,7 +81,8 @@ body {
 }
 
 main {
-  @apply flex flex-col flex-1 bg-white dark:bg-black;
+  @apply flex flex-col flex-1;
+  background-color: rgb(var(--bg));
 }
 
 header {
@@ -62,7 +95,7 @@ header:not(.scrolled) {
 }
 
 header.scrolled {
-  @apply bg-white/75 dark:bg-black/50;
+  background-color: rgb(var(--bg) / 0.78);
   @apply border-black/10 dark:border-white/25;
   @apply backdrop-blur-sm saturate-200;
 }
@@ -71,12 +104,141 @@ article {
   @apply prose dark:prose-invert max-w-full pb-12;
 }
 
+/* editorial display headings inside long-form content */
+article h1,
+article h2,
+article h3 {
+  font-family: "Fraunces", "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  letter-spacing: 0.01em;
+}
+
 .page-heading {
+  font-family: "Fraunces", "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
   @apply font-semibold text-black dark:text-white;
 }
 
 .blend {
   @apply transition-all duration-300 ease-in-out;
+}
+
+/* ------------------------------------------------------------
+   Accent-driven building blocks
+   ------------------------------------------------------------ */
+
+/* numbered section label, e.g. [ 01 ] RESEARCH DIRECTION */
+.mono-label {
+  font-family: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgb(var(--accent));
+}
+
+.mono-label-plain {
+  font-family: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+/* hairline ruled section header */
+.section-rule {
+  @apply flex items-center gap-4;
+}
+.section-rule::after {
+  content: "";
+  height: 1px;
+  flex: 1;
+  background-color: rgb(var(--accent) / 0.35);
+}
+
+/* primary accent button */
+.btn-accent {
+  background-color: rgb(var(--accent));
+  color: rgb(var(--accent-ink));
+}
+.btn-accent:hover {
+  opacity: 0.85;
+}
+
+/* subtle accent chip */
+.chip-accent {
+  background-color: rgb(var(--accent) / 0.12);
+  color: rgb(var(--accent));
+}
+
+/* accent link underline */
+.accent-link {
+  text-decoration-color: rgb(var(--accent) / 0.4);
+}
+.accent-link:hover {
+  text-decoration-color: rgb(var(--accent));
+}
+
+/* accent switcher dots (header + drawer) */
+.accent-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 9999px;
+  border: 0.5px solid rgb(0 0 0 / 0.25);
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.dark .accent-dot {
+  border-color: rgb(255 255 255 / 0.3);
+}
+.accent-dot:hover {
+  transform: scale(1.15);
+}
+.accent-dot[aria-pressed="true"] {
+  box-shadow: 0 0 0 2px rgb(var(--bg)), 0 0 0 3.5px rgb(var(--accent));
+}
+
+/* smooth accent transitions (skipped for reduced motion) */
+@media (prefers-reduced-motion: no-preference) {
+  .accent-fade {
+    transition: color 0.3s ease, background-color 0.3s ease,
+      border-color 0.3s ease, fill 0.3s ease, stroke 0.3s ease,
+      text-decoration-color 0.3s ease;
+  }
+}
+
+/* ------------------------------------------------------------
+   Cursor spotlight on cards
+   ------------------------------------------------------------ */
+.spotlight-card {
+  position: relative;
+  overflow: hidden;
+}
+.spotlight-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    220px circle at var(--mx, 50%) var(--my, 50%),
+    rgb(var(--accent) / 0.12),
+    transparent 70%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+.spotlight-card:hover::after {
+  opacity: 1;
+}
+@media (prefers-reduced-motion: reduce) {
+  .spotlight-card::after {
+    display: none;
+  }
+}
+
+/* ------------------------------------------------------------
+   Article table of contents scroll-spy
+   ------------------------------------------------------------ */
+.toc-active {
+  color: rgb(var(--accent)) !important;
+  opacity: 1 !important;
+  border-left-color: rgb(var(--accent)) !important;
 }
 
 /** Light theme particles on home page */
@@ -100,6 +262,14 @@ article {
 .animate.show {
   opacity: 1;
   transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
 }
 
 article img {
@@ -172,15 +342,3 @@ article img {
 .copy-svg {
   @apply w-full aspect-square text-white opacity-70 hover:opacity-90;
 }
-
-/* Card transition */
-/* .fade-move-enter-active,
-.fade-move-exit-active {
-  transition: all 300ms ease;
-}
-
-.fade-move-enter-from,
-.fade-move-exit-to {
-  opacity: 0;
-  transform: translateY(10px);
-} */

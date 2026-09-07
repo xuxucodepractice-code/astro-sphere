@@ -32,7 +32,7 @@ const methods = collection === "projects" ? data.methods ?? [] : []
       Back to {collection}
     </div>
   </a>
-  <div class="flex flex-wrap text-sm uppercase mt-12 gap-3 opacity-75">
+  <div class="flex flex-wrap mt-12 gap-3 opacity-75 mono-label-plain text-xs uppercase">
     <div class="flex items-center gap-2">
       <svg class="size-5 stroke-current">
         <use href="/ui.svg#calendar"/>
@@ -46,7 +46,7 @@ const methods = collection === "projects" ? data.methods ?? [] : []
       {readingTime(body)}
     </div>
   </div>
-  <h1 class="text-3xl font-semibold text-black dark:text-white mt-2">
+  <h1 class="text-3xl font-display font-semibold text-black dark:text-white mt-2">
     {title}
   </h1>
   <div class="mt-1">
@@ -58,7 +58,7 @@ const methods = collection === "projects" ? data.methods ?? [] : []
         <dl class="grid grid-cols-1 gap-3">
           {projectSnapshot.map((item) => (
             <div class="grid grid-cols-1 sm:grid-cols-[7rem_1fr] gap-1 sm:gap-3">
-              <dt class="text-xs uppercase tracking-wide opacity-60">
+              <dt class="mono-label-plain text-xs opacity-60">
                 {item.label}
               </dt>
               <dd class="text-sm text-black/80 dark:text-white/80">
@@ -70,7 +70,7 @@ const methods = collection === "projects" ? data.methods ?? [] : []
       }
       {methods.length > 0 &&
         <div class="grid grid-cols-1 sm:grid-cols-[7rem_1fr] gap-1 sm:gap-3">
-          <div class="text-xs uppercase tracking-wide opacity-60">
+          <div class="mono-label-plain text-xs opacity-60">
             Methods
           </div>
           <ul class="flex flex-wrap gap-1.5">
