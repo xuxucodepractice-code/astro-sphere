@@ -1,0 +1,211 @@
+---
+// The Laboratories: an interactive constellation mapping one research
+// question to four testbed domains. All copy is drawn from existing
+// site content (homepage / about / research-vision writing).
+
+const labs = [
+  {
+    key: "finance",
+    label: "Finance",
+    x: 170,
+    y: 86,
+    description:
+      "Forecasting, ranking, portfolio construction, leakage control, and risk-aware evaluation.",
+    href: "/projects/msc-thesis-uncertainty-aware-stock-ranking",
+    linkText: "MSc Thesis",
+  },
+  {
+    key: "recommender",
+    label: "Recommender Systems",
+    x: 470,
+    y: 86,
+    description:
+      "Sparse feature interaction and sequential user behavior.",
+    href: "/projects/taac-2026-ctr-prediction",
+    linkText: "TAAC 2026",
+  },
+  {
+    key: "agentic",
+    label: "Agentic AI",
+    x: 170,
+    y: 314,
+    description:
+      "Planning, tool use, memory, and feedback.",
+    href: "/projects/afac-financial-long-text-agent",
+    linkText: "AFAC2026",
+  },
+  {
+    key: "robotics",
+    label: "Robotics",
+    x: 470,
+    y: 314,
+    description:
+      "State estimation, planning, memory, and action under physical or operational constraints.",
+    href: null,
+    linkText: null,
+  },
+]
+
+const center = { x: 320, y: 200 }
+---
+
+<div id="lab-map" class="select-none">
+  <svg viewBox="0 0 640 400" class="w-full h-auto" role="img" aria-label="Map of research laboratories: finance, recommender systems, agentic AI, and robotics connected to decision systems under uncertainty">
+    {
+      labs.map((lab) => (
+        <line
+          data-lab-line={lab.key}
+          x1={center.x}
+          y1={center.y}
+          x2={lab.x}
+          y2={lab.y}
+          class="lab-line"
+        />
+      ))
+    }
+
+    <!-- center node -->
+    <g class="lab-center">
+      <circle cx={center.x} cy={center.y} r="58" class="lab-center-circle" />
+      <text x={center.x} y={center.y - 12} text-anchor="middle" class="lab-center-text">
+        <tspan x={center.x} dy="0">Decision</tspan>
+        <tspan x={center.x} dy="14">systems under</tspan>
+        <tspan x={center.x} dy="14">uncertainty</tspan>
+      </text>
+    </g>
+
+    {
+      labs.map((lab) => (
+        <g
+          data-lab-node={lab.key}
+          class="lab-node"
+          tabindex="0"
+          role="button"
+          aria-label={`Laboratory: ${lab.label}`}
+        >
+          <rect
+            x={lab.x - 92}
+            y={lab.y - 20}
+            width="184"
+            height="40"
+            rx="20"
+            class="lab-node-rect"
+          />
+          <circle cx={lab.x - 72} cy={lab.y} r="3.5" class="lab-node-dot" />
+          <text x={lab.x + 8} y={lab.y + 1} text-anchor="middle" dominant-baseline="central" class="lab-node-text">
+            {lab.label}
+          </text>
+        </g>
+      ))
+    }
+  </svg>
+
+  <!-- detail panel -->
+  <div class="mt-2 min-h-[6.5rem] border-t border-black/10 dark:border-white/15 pt-4">
+    {
+      labs.map((lab, i) => (
+        <div data-lab-panel={lab.key} class={i === 0 ? "" : "hidden"}>
+          <div class="mono-label mb-1">[ Laboratory ]</div>
+          <div class="font-display text-lg font-semibold text-black dark:text-white">
+            {lab.label}
+          </div>
+          <p class="text-sm mt-1">{lab.description}</p>
+          {lab.href && (
+            <a href={lab.href} class="accent-link underline underline-offset-2 decoration-[.5px] text-sm text-black dark:text-white blend inline-block mt-1">
+              Related work: {lab.linkText}
+            </a>
+          )}
+        </div>
+      ))
+    }
+  </div>
+</div>
+
+<style>
+  .lab-line {
+    stroke: rgb(128 128 128 / 0.3);
+    stroke-width: 1;
+    stroke-dasharray: 3 5;
+    transition: stroke 0.3s ease;
+  }
+  .lab-line.active {
+    stroke: rgb(var(--accent));
+    stroke-dasharray: none;
+  }
+  .lab-center-circle {
+    fill: rgb(var(--accent) / 0.1);
+    stroke: rgb(var(--accent) / 0.6);
+    stroke-width: 1;
+  }
+  .lab-center-text {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 10px;
+    letter-spacing: 0.06em;
+    fill: rgb(var(--accent));
+    text-transform: uppercase;
+  }
+  .lab-node {
+    cursor: pointer;
+    outline: none;
+  }
+  .lab-node-rect {
+    fill: rgb(var(--bg));
+    stroke: rgb(128 128 128 / 0.4);
+    stroke-width: 0.75;
+    transition: stroke 0.25s ease, fill 0.25s ease;
+  }
+  .lab-node-dot {
+    fill: rgb(128 128 128 / 0.6);
+    transition: fill 0.25s ease;
+  }
+  .lab-node-text {
+    font-family: "Atkinson", sans-serif;
+    font-size: 12.5px;
+    fill: currentColor;
+    transition: fill 0.25s ease;
+  }
+  .lab-node:hover .lab-node-rect,
+  .lab-node:focus-visible .lab-node-rect,
+  .lab-node.active .lab-node-rect {
+    stroke: rgb(var(--accent));
+    fill: rgb(var(--accent) / 0.08);
+  }
+  .lab-node:hover .lab-node-dot,
+  .lab-node:focus-visible .lab-node-dot,
+  .lab-node.active .lab-node-dot {
+    fill: rgb(var(--accent));
+  }
+  .lab-node.active .lab-node-text {
+    font-weight: 600;
+  }
+</style>
+
+<script is:inline>
+  function initLabMap() {
+    const root = document.getElementById("lab-map")
+    if (!root) return
+    const nodes = root.querySelectorAll("[data-lab-node]")
+    const lines = root.querySelectorAll("[data-lab-line]")
+    const panels = root.querySelectorAll("[data-lab-panel]")
+
+    function activate(key) {
+      nodes.forEach((n) => n.classList.toggle("active", n.dataset.labNode === key))
+      lines.forEach((l) => l.classList.toggle("active", l.dataset.labLine === key))
+      panels.forEach((p) => p.classList.toggle("hidden", p.dataset.labPanel !== key))
+    }
+
+    nodes.forEach((n) => {
+      if (n.dataset.labBound === "true") return
+      n.dataset.labBound = "true"
+      const key = n.dataset.labNode
+      n.addEventListener("mouseenter", () => activate(key))
+      n.addEventListener("focus", () => activate(key))
+      n.addEventListener("click", () => activate(key))
+    })
+
+    activate("finance")
+  }
+
+  document.addEventListener("astro:after-swap", initLabMap)
+  initLabMap()
+</script>
